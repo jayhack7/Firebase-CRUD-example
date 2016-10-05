@@ -29,7 +29,7 @@
 
         <activity
             android:name="example.slifers.firebase.PersonActivity"
-            android:label="Inputting Data">
+            android:label="Inputing Data">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="example.slifers.firebase.MainActivity"/>
