@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardBackgroundColor="@color/cv_background"
+    app:cardCornerRadius="20dp"
+
+    tools:showIn="@layout/activity_main">
+    <com.github.ivbaranov.mli.MaterialLetterIcon
+        android:layout_marginTop="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="6dp"
+        app:mli_initials="false"
+        app:mli_initials_number="2"
+        app:mli_letter="@string/contact_name"
+        app:mli_letter_color="@color/white"
+        app:mli_letter_size="26"
+        app:mli_letters_number="2"
+        app:mli_shape_type="circle"
+        android:id="@+id/icon" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="60dp"
+
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/tv_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:text="First:"/>
+
+        <TextView
+            android:id="@+id/tv_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:text="Last:"
+            android:textColor="@color/textcolor"
+
+            android:layout_above="@+id/tv_zip"
+            android:layout_toRightOf="@+id/tv_first"
+            android:layout_toEndOf="@+id/tv_first"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            tools:text="Date of Birth:"
+            android:textColor="@color/textcolor"
+
+            android:layout_below="@+id/tv_first"
+            android:layout_alignRight="@+id/tv_last"
+            android:layout_alignEnd="@+id/tv_last"/>
+        <TextView
+            android:id="@+id/tv_zip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            tools:text="Zip Code:"
+            android:textColor="@color/textcolor"
+            android:layout_marginLeft="40dp"
+
+            android:layout_alignTop="@+id/tv_dob"
+            android:layout_toRightOf="@+id/tv_dob"
+            android:layout_toEndOf="@+id/tv_first"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

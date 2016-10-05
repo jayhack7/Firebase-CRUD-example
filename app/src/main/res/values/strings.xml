@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Slifer FireBase Example</string>
+
+
+    <string name="hint_first" >First Name</string>
+    <string name="hint_last" >Last Name</string>
+    <string name="hint_dob" >Date of Birth</string>
+    <string name="hint_zip" >Zip Code</string>
+    <string name="contact_name">$s</string>
+</resources>
