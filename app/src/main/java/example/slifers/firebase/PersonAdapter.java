@@ -26,6 +26,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         TextView last;
         TextView dob;
         TextView zip;
+        TextView phone;
+
         MaterialLetterIcon mIcon;
 
         private Person Person;
@@ -36,6 +38,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             last = (TextView) itemView.findViewById(R.id.tv_last);
             dob = (TextView) itemView.findViewById(R.id.tv_dob);
             zip = (TextView) itemView.findViewById(R.id.tv_zip);
+            phone = (TextView) itemView.findViewById(R.id.tv_phone);
+
             mIcon = (MaterialLetterIcon) itemView.findViewById(R.id.icon);
             itemView.setOnClickListener(this);
 
@@ -47,6 +51,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             last.setText(Person.getLast());
             dob.setText(Person.getDob());
             zip.setText(Person.getZipcode());
+            phone.setText(Person.getPhone());
 
         }
 

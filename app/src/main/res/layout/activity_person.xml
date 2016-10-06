@@ -98,6 +98,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_zip"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            >
+
+            <EditText
+                android:inputType="phone"
+                android:ems="10"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:textColor="@color/textcolor"
+
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_phone"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
                 />

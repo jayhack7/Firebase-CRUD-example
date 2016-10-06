@@ -9,6 +9,7 @@ import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,10 +23,16 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
 
 public class PersonActivity extends AppCompatActivity {
     private static final String EXTRA_Person = "Person";
@@ -35,6 +42,7 @@ public class PersonActivity extends AppCompatActivity {
     private TextView last;
     private TextView dob;
     private TextView zip;
+    private TextView phone;
     boolean error_first;
     boolean error_last;
     boolean error_dob;
@@ -65,6 +73,8 @@ public class PersonActivity extends AppCompatActivity {
         last = (TextView) findViewById(R.id.et_last);
         dob = (TextView) findViewById(R.id.et_dob);
         zip = (TextView) findViewById(R.id.et_zip);
+        phone = (TextView) findViewById(R.id.et_phone);
+
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -96,6 +106,7 @@ public class PersonActivity extends AppCompatActivity {
             last.setText(Person.getLast());
             dob.setText(Person.getDob());
             zip.setText(Person.getZipcode());
+            phone.setText(Person.getPhone());
 
         }
         zip.setOnEditorActionListener(new OnEditorActionListener() {
@@ -117,7 +128,10 @@ public class PersonActivity extends AppCompatActivity {
                 if ((first.getText().toString().trim().isEmpty()) ||
                         (last.getText().toString().trim().isEmpty()) ||
                         (dob.getText().toString().trim().isEmpty()) ||
-                        (zip.getText().toString().trim().isEmpty())) {
+                        (zip.getText().toString().trim().isEmpty()) ||
+                    (phone.getText().toString().trim().isEmpty()))
+
+                {
                     vibrate();
                     Toast.makeText(getBaseContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
                     et_error = true;
@@ -145,7 +159,19 @@ public class PersonActivity extends AppCompatActivity {
                 }
                 int length = zip.getText().length();
                 if (length <= 4){
-                    zip.setError("Zip Code needs 5 numbers.");
+                    zip.setError("Zip Code needs 5 digits.");
+                    vibrate();
+                    et_error = true;
+
+
+                }else{
+                    et_error = false;
+
+
+                }
+                int length2 = phone.getText().length();
+                if (length2 <= 9){
+                    phone.setError("Phone Number needs 10 digits.");
                     vibrate();
                     et_error = true;
 
@@ -169,9 +195,9 @@ public class PersonActivity extends AppCompatActivity {
                     Person.setLast(last.getText().toString());
                     Person.setDob(dob.getText().toString());
                     Person.setZipcode(zip.getText().toString());
+                    Person.setPhone(phone.getText().toString());
 
                     database.child("Persons").child(Person.getUid()).setValue(Person);
-                    Toast.makeText(getBaseContext(), "Entry updated!", Toast.LENGTH_SHORT).show();
 
                     finish();
 
@@ -183,8 +209,11 @@ public class PersonActivity extends AppCompatActivity {
 
         String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        DateFormat dateInstance = SimpleDateFormat.getDateInstance();
 
-        dob.setText(sdf.format(myCalendar.getTime()));
+      //  dob.setText(sdf.format(myCalendar.getTime()));
+
+        dob.setText( dateInstance.format(myCalendar.getTime()));
     }
     public void vibrate() {
         Vibrator vibrate = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);

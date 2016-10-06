@@ -7,20 +7,20 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_marginBottom="4dp"
+    android:layout_marginBottom="1dp"
     android:layout_marginLeft="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginEnd="10dp"
     app:cardBackgroundColor="@color/cv_background"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="30dp"
 
     tools:showIn="@layout/activity_main">
     <com.github.ivbaranov.mli.MaterialLetterIcon
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginLeft="14dp"
         app:mli_initials="false"
         app:mli_initials_number="2"
         app:mli_letter="@string/contact_name"
@@ -29,9 +29,11 @@
         app:mli_letters_number="2"
         app:mli_shape_type="circle"
         android:id="@+id/icon" />
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:orientation="vertical"
         android:layout_marginLeft="60dp"
 
@@ -54,11 +56,36 @@
             tools:text="Last:"
             android:textColor="@color/textcolor"
 
-            android:layout_above="@+id/tv_zip"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/tv_first"
-            android:layout_toEndOf="@+id/tv_first"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"/>
+            android:layout_toEndOf="@+id/tv_first"/>
+
+
+        <TextView
+            android:id="@+id/tv_zip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            tools:text="Zip Code:"
+            android:textColor="@color/textcolor"
+
+            android:layout_below="@+id/tv_phone"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+            tools:text="Phone:"
+            android:textColor="@color/textcolor"
+
+            android:layout_below="@+id/tv_first"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/tv_dob"
@@ -68,21 +95,9 @@
             tools:text="Date of Birth:"
             android:textColor="@color/textcolor"
 
-            android:layout_below="@+id/tv_first"
-            android:layout_alignRight="@+id/tv_last"
-            android:layout_alignEnd="@+id/tv_last"/>
-        <TextView
-            android:id="@+id/tv_zip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-            tools:text="Zip Code:"
-            android:textColor="@color/textcolor"
-            android:layout_marginLeft="40dp"
-
-            android:layout_alignTop="@+id/tv_dob"
-            android:layout_toRightOf="@+id/tv_dob"
-            android:layout_toEndOf="@+id/tv_first"/>
+            android:layout_below="@+id/tv_zip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

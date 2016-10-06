@@ -10,14 +10,16 @@ public class Person implements Parcelable {
     private String last;
     private String dob;
     private String zipcode;
+    private String phone;
 
 
-    public Person(String uid, String first, String last, String dob, String zipcode) {
+    public Person(String uid, String first, String last, String dob, String zipcode, String phone) {
         this.uid = uid;
         this.first = first;
         this.last = last;
         this.dob = dob;
         this.zipcode = zipcode;
+        this.phone = phone;
 
     }
 
@@ -44,12 +46,21 @@ public class Person implements Parcelable {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
     public String getZipcode() {
         return zipcode;
     }
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getUid() {
@@ -73,6 +84,7 @@ public class Person implements Parcelable {
         dest.writeString(this.last);
         dest.writeString(this.dob);
         dest.writeString(this.zipcode);
+        dest.writeString(this.phone);
 
     }
 
@@ -85,6 +97,7 @@ public class Person implements Parcelable {
         this.last = in.readString();
         this.dob = in.readString();
         this.zipcode = in.readString();
+        this.phone = in.readString();
 
     }
 
@@ -120,6 +133,7 @@ public class Person implements Parcelable {
         result = 31 * result + (last != null ? last.hashCode() : 0);
         result = 31 * result + (dob != null ? dob.hashCode() : 0);
         result = 31 * result + (zipcode != null ? zipcode.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
 
         return result;
     }

@@ -6,5 +6,7 @@
     <string name="hint_last" >Last Name</string>
     <string name="hint_dob" >Date of Birth</string>
     <string name="hint_zip" >Zip Code</string>
+    <string name="hint_phone" >Phone Number</string>
+
     <string name="contact_name">$s</string>
 </resources>
