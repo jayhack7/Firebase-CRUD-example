@@ -9,6 +9,7 @@ import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,21 +34,33 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class PersonActivity extends AppCompatActivity {
     private static final String EXTRA_Person = "Person";
     private DatabaseReference database;
 
-    private TextView first;
-    private TextView last;
-    private TextView dob;
-    private TextView zip;
-    private TextView phone;
     boolean error_first;
     boolean error_last;
     boolean error_dob;
     boolean error_zip;
     boolean et_error;
+
+    @Bind(R.id.et_first)
+    TextView first;
+
+    @Bind(R.id.et_last)
+    TextView last;
+
+    @Bind(R.id.et_dob)
+    TextView dob;
+    @Bind(R.id.et_zip)
+    TextView zip;
+    @Bind(R.id.et_phone)
+    TextView phone;
+
     Calendar myCalendar = Calendar.getInstance();
     private Person Person;
 
@@ -64,16 +77,12 @@ public class PersonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
+        ButterKnife.bind(this);
 
         database = FirebaseDatabase.getInstance().getReference();
 
 
 
-        first = (TextView) findViewById(R.id.et_first);
-        last = (TextView) findViewById(R.id.et_last);
-        dob = (TextView) findViewById(R.id.et_dob);
-        zip = (TextView) findViewById(R.id.et_zip);
-        phone = (TextView) findViewById(R.id.et_phone);
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 

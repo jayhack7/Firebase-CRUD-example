@@ -5,6 +5,8 @@ import android.app.Application;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.hawk.Hawk;
 
+import butterknife.ButterKnife;
+
 
 public class MyApplication extends Application {
     @Override

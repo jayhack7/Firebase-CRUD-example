@@ -28,11 +28,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements DeletionListener {
     private PersonAdapter mAdapter;
     private DatabaseReference mDatabase;
-    RecyclerView recyclerView;
+
+
+    @Bind(R.id.fab)
     FloatingActionButton fab;
+
+    @Bind(R.id.rv)
+    RecyclerView recyclerView;
 
     Context context;
     private static Context mContext;
@@ -41,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements DeletionListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
-        TextView view = (TextView) findViewById(R.id.tutview);
+
+        ButterKnife.bind(this);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
